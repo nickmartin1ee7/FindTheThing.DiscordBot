@@ -13,6 +13,7 @@ RUN dotnet build "FindTheThing.DiscordBot.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "FindTheThing.DiscordBot.csproj" -c Release -o /app/publish
+COPY FindTheThing.DiscordBot/appsettings.json /app/publish/
 
 FROM base AS final
 WORKDIR /app
